@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 require("./models/portfolio");
 require("./models/blog");
+require("./models/projects");
 
 exports.connect = () => {
   return mongoose.connect(
