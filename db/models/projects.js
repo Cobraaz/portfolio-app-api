@@ -8,6 +8,7 @@ const projectsSchema = new Schema({
   description: { type: String, required: true },
   github: { type: String, required: true },
   link: { type: String },
+  userId: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
 
