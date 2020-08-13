@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 require("./models/portfolio");
 require("./models/blog");
 require("./models/projects");
+require("./models/contact");
 
 exports.connect = () => {
   return mongoose.connect(
