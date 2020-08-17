@@ -19,6 +19,8 @@
     "express-validator": "^6.6.1",
     "jwks-rsa": "^1.8.1",
     "mongoose": "^5.9.27",
+    "nodemailer": "^6.4.11",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "request": "^2.88.2",
     "slugify": "^1.4.5",
     "unique-slug": "^2.0.2"
