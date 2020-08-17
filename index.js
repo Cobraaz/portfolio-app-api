@@ -6,7 +6,6 @@ async function runServer() {
 
   server.use(bodyParser.json());
   server.use("/api/v1/portfolios", require("./routes/portfolios"));
-  server.use("/api/v1/blogs", require("./routes/blogs"));
   server.use("/api/v1/projects", require("./routes/projects"));
   server.use("/api/v1/contact", require("./routes/contact"));
 
