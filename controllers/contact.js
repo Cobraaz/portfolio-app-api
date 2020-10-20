@@ -23,7 +23,7 @@ exports.contactMe = async (req, res) => {
   const contactMeData = req.body;
   const contactme = new ContactMe(contactMeData);
   try {
-    const newContactme = await contactme.save();
+    await contactme.save();
     await transporter.sendMail({
       to: contactMeData.email,
       from: "anujbansal077@gmail.com",
