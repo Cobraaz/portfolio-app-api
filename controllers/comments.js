@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 const blogComments = mongoose.model("BlogComments");
 
 exports.addComment = async (req, res) => {
-  const comment = await blogComments.find({ slug: req.params.id });
-  console.log("hello");
+  const comment = await blogComments.find({ slug: req.params.slug });
   const commentdata = req.body;
   // console.log(commentdata);
 
@@ -46,7 +45,7 @@ exports.addComment = async (req, res) => {
 
 exports.getComments = async (req, res) => {
   try {
-    const comments = await blogComments.find({ slug: req.params.id });
+    const comments = await blogComments.find({ slug: req.params.slug });
     return res.json(comments);
   } catch (err) {
     console.error(err.message);

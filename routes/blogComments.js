@@ -4,8 +4,8 @@ const { check } = require("express-validator");
 
 const { addComment, getComments } = require("../controllers/comments");
 
-router.post(
-  "/:id",
+router.patch(
+  "/:slug",
   [
     [
       check("comment", "Comment is required").not().isEmpty(),
@@ -15,6 +15,6 @@ router.post(
   addComment
 );
 
-router.get("/getcomment/:id", getComments);
+router.get("/getcommentsbyslug/:slug", getComments);
 
 module.exports = router;
