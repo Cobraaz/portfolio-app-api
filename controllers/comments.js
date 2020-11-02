@@ -3,12 +3,13 @@ const blogComments = mongoose.model("BlogComments");
 
 exports.addComment = async (req, res) => {
   const comment = await blogComments.find({ slug: req.params.slug });
+  console.log("comment", comment);
   const commentdata = req.body;
   // console.log(commentdata);
 
   if (!comment.length) {
     const NewComment = {
-      slug: req.params.id,
+      slug: req.params.slug,
       comments: {
         text: commentdata.comment,
         name: commentdata.data.name,
