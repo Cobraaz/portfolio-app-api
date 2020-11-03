@@ -38,6 +38,10 @@ const blogCommentsSchema = new Schema({
         type: Date,
         default: Date.now,
       },
+      authId: {
+        type: String,
+        required: true,
+      },
     },
   ],
 });

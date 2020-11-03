@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { check } = require("express-validator");
 
-const { addComment, getComments } = require("../controllers/comments");
+const {
+  addComment,
+  getComments,
+  deleteComment,
+} = require("../controllers/comments");
 
 router.patch(
   "/:slug",
@@ -15,6 +19,6 @@ router.patch(
   addComment
 );
 
-router.get("/getcommentsbyslug/:slug", getComments);
-
+router.get("/comments/:slug", getComments);
+router.delete("/comments/:id/:comment_id", deleteComment);
 module.exports = router;
