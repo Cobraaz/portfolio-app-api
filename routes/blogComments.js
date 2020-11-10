@@ -6,6 +6,8 @@ const {
   addComment,
   getComments,
   deleteComment,
+  likeComment,
+  unlikeComment,
 } = require("../controllers/comments");
 
 router.patch(
@@ -21,4 +23,7 @@ router.patch(
 
 router.get("/comments/:slug", getComments);
 router.delete("/comments/:id/:comment_id", deleteComment);
+router.put("/comments/like/:id/:comment_id", likeComment);
+router.put("/comments/unlike/:id/:comment_id", unlikeComment);
+
 module.exports = router;

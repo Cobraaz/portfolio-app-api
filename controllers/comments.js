@@ -78,3 +78,59 @@ exports.getComments = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+
+exports.likeComment = async (req, res) => {
+  try {
+    const blog = await blogComments.findById(req.params.id);
+    const comment = blog.comments.find(
+      (comment) => comment.id === req.params.comment_id
+    );
+
+    const user = req.body.authId;
+    // Check if the blogComment has already been liked
+    if (
+      comment.likes.filter((like) => like.user.toString() === user).length > 0
+    ) {
+      return res.status(400).json({ msg: "Comment is already liked" });
+    }
+
+    comment.likes.unshift({ user });
+
+    await blog.save();
+
+    res.json(comment.likes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+};
+exports.unlikeComment = async (req, res) => {
+  try {
+    const blog = await blogComments.findById(req.params.id);
+    const comment = blog.comments.find(
+      (comment) => comment.id === req.params.comment_id
+    );
+
+    const user = req.body.authId;
+    // Check if the blogComment has already not been liked
+    if (
+      comment.likes.filter((like) => like.user.toString() === user).length === 0
+    ) {
+      return res.status(400).json({ msg: "Comment has not been liked" });
+    }
+
+    // Get remove index
+    const removeIndex = comment.likes
+      .map((like) => like.user.toString())
+      .indexOf(user);
+
+    comment.likes.splice(removeIndex, 1);
+
+    await blog.save();
+
+    res.json(comment.likes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+};

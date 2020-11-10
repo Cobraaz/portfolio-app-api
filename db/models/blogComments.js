@@ -42,6 +42,13 @@ const blogCommentsSchema = new Schema({
         type: String,
         required: true,
       },
+      likes: [
+        {
+          user: {
+            type: String,
+          },
+        },
+      ],
     },
   ],
 });
