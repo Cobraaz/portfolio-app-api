@@ -20,7 +20,7 @@
     "express-validator": "^6.6.1",
     "jwks-rsa": "^1.10.1",
     "mongoose": "^5.10.9",
-    "nodemailer": "^6.4.14",
+    "nodemailer": "^6.4.16",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "request": "^2.88.2"
   },
